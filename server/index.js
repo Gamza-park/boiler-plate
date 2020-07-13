@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 5000;
 const bodyParser = require('body-parser');
 const { User } = require('./models/User');
 const config = require('./config/key');
@@ -22,6 +22,10 @@ mongoose.connect(config.mongoURI, {
 
 
 app.get('/', (req, res) => res.send('hello world!  hello!'));
+
+app.get('/api/hello', (req, res) => {
+    res.send("Hi")
+})
 
 app.post("/api/users/register", (req, res) => {
     //Put into db from client
